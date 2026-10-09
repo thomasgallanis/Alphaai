@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14110d">
+<script>function imgFail(i,l){if(l&&!i.dataset.f){i.dataset.f=1;i.removeAttribute("srcset");i.src=l}else{i.hidden=true;if(i.nextElementSibling)i.nextElementSibling.hidden=false}}</script>
+<title>Alpha AI™ 【Multi-Asset Trading Platform】</title>
+<meta name="description" content="Trade Forex, Cryptocurrency, Futures, Indices, Metals, Shares and Traded Goods with Alpha AI. Automated tools for global financial markets. Capital at risk. Open your account today.">
+<style>
+:root{--orange:#f57c00;--deep:#e65100;--dark:#14110d;--gold:#c8a24a;--ink:#2a1a0a;--muted:#5a5148;--line:#e9e1d6}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{overflow-x:clip;-webkit-text-size-adjust:100%;font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#222;line-height:1.6;background:#fff}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+h1,h2,h3{line-height:1.2}
+h1,h2,h3,p,li{overflow-wrap:break-word}
+img,svg,video,iframe{max-width:100%}
+.split>*,.three>*,.steps>*,.why>*,.kf>*,.faq>*,.hero .grid>*{min-width:0}
+:focus-visible{outline:3px solid var(--deep);outline-offset:2px}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.ph{background:#fff0b3;color:#6b4a00;padding:0 3px;border-radius:3px;font-style:normal}
+
+.btn{display:inline-block;background:var(--orange);color:#fff;font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.03em;padding:14px 28px;border-radius:30px;border:0;cursor:pointer;box-shadow:0 6px 18px rgba(245,124,0,.35);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.light{background:#fff;color:var(--deep);box-shadow:0 6px 18px rgba(90,30,0,.25)}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:50;background:rgba(20,17,13,.84);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#ddd;border-bottom:1px solid rgba(255,255,255,.08)}
+header.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.12em;color:#fff}
+.logo i{width:28px;height:28px;border:2px solid var(--gold);transform:rotate(45deg);display:grid;place-items:center}
+.logo i b{transform:rotate(-45deg);font-style:normal;font-size:.8rem;color:var(--gold)}
+nav{display:flex;gap:20px;align-items:center;font-size:.85rem}
+nav a:hover{color:#ffb45c}
+nav .btn{padding:8px 16px;font-size:.72rem;box-shadow:none;color:#fff}
+
+/* hero: light orange to orange-white gradient */
+.hero{position:relative;overflow:hidden;color:var(--ink);padding:50px 0 80px;background:linear-gradient(160deg,#ffae4a 0%,#ffcb90 36%,#ffe6cc 68%,#fff8f0 100%)}
+.hero:after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(255,220,178,.92) 0%,rgba(255,228,196,.8) 42%,rgba(255,236,212,0) 64%)}
+.hero .wrap{position:relative;z-index:4;max-width:1240px}
+.bgm{position:absolute;left:0;right:0;top:-90px;bottom:-90px;z-index:1;will-change:transform}
+.bgm svg{width:100%;height:100%}
+#mk .g line{stroke:#e65100;stroke-opacity:.12}
+#mk .sig{fill:#e65100;fill-opacity:.7}
+#mk .ma{fill:none;stroke:#e65100;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.6s .2s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.chip{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:14px;padding:9px 14px;font-size:.78rem;font-weight:700;color:var(--ink);box-shadow:0 12px 30px rgba(150,70,0,.18);will-change:transform}
+.chip svg{width:56px;height:20px;fill:none;stroke:var(--deep);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.tg{width:34px;height:18px;border-radius:9px;background:var(--orange);position:relative}
+.tg:after{content:"";position:absolute;right:2px;top:2px;width:14px;height:14px;border-radius:50%;background:#fff}
+.c1{left:3%;top:10%}.c2{left:46%;top:6%}.c3{left:36%;bottom:7%}.c4{right:3%;bottom:5%}.c5{left:2%;bottom:14%}
+.illus{position:absolute;z-index:3;right:20px;bottom:10px;font-size:.65rem;color:#7a5a3a}
+.hero .grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px;align-items:center}
+.hero h1{font-size:clamp(1.8rem,4vw,3.2rem);font-weight:800;letter-spacing:-.02em;color:var(--ink);margin:-8px 0 8px}
+.hero .sub{font-size:1rem;font-weight:500;line-height:1.55;margin-bottom:18px}
+.video{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;margin:0 0 18px;background:linear-gradient(135deg,#3a2a18,#14110d);box-shadow:0 30px 60px rgba(120,50,0,.4);border:1px solid rgba(255,255,255,.55)}
+.video video,.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;background:#000}
+.vph{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:12px;color:#ffd9a8;font-weight:700;font-size:.9rem;text-align:center;background:radial-gradient(circle at 50% 40%,rgba(245,124,0,.25),rgba(20,17,13,0) 65%)}
+.play{width:70px;height:70px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 10px rgba(245,124,0,.28);position:relative}
+.play:after{content:"";position:absolute;left:28px;top:21px;border-left:22px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent}
+.mk-list{display:flex;flex-wrap:nowrap;gap:6px;list-style:none;overflow-x:auto;scrollbar-width:none}
+.mk-list::-webkit-scrollbar{display:none}
+.mk-list li{background:rgba(255,255,255,.7);border:1px solid rgba(230,81,0,.25);border-radius:20px;padding:6px 12px;font-size:.76rem;font-weight:600;color:#5a2a00;white-space:nowrap;flex:none}
+.card{background:#fff;border-radius:22px;padding:28px;box-shadow:0 30px 70px rgba(150,70,0,.3)}
+.card h2{font-size:.95rem;letter-spacing:.06em;margin-bottom:14px}
+.card input{width:100%;padding:12px 14px;border:1px solid #ddd;border-radius:10px;margin-bottom:12px;font-size:16px;background:#fafafa}
+.card input:focus{border-color:var(--orange);background:#fff;outline:none;box-shadow:0 0 0 3px rgba(245,124,0,.2)}
+.card .btn{width:100%;border-radius:12px;padding:16px}
+.card small{display:block;font-size:.68rem;color:var(--muted);margin-top:12px}
+#msg{font-size:.82rem;margin-top:8px;min-height:1.2em;font-weight:600}
+
+section{padding:64px 0}
+.center{text-align:center}
+.sec-title{font-size:1.8rem;margin-bottom:12px}
+.sub2{color:var(--muted);max-width:660px;margin:0 auto 34px}
+.cta-row{text-align:center;margin-top:34px}
+
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.three>div{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 14px 40px rgba(20,17,13,.06)}
+.three h3{font-size:1rem;text-transform:uppercase;margin-bottom:12px;color:var(--deep)}
+.three p{font-size:.88rem;color:var(--muted)}
+
+.orange{position:relative;overflow:hidden;background:linear-gradient(135deg,#f98a0b,#e65100);color:#fff}
+.split{display:grid;grid-template-columns:1fr 1.2fr;gap:44px;align-items:center}
+.split.rev{grid-template-columns:1.2fr 1fr}
+.orange h2{font-size:1.9rem;text-transform:uppercase;margin-bottom:18px}
+.orange p{font-size:1rem;font-weight:500;margin-bottom:14px}
+.phone{display:block;width:min(250px,70%);margin:0 auto;will-change:transform;filter:drop-shadow(0 24px 30px rgba(0,0,0,.35))}
+.machine-section .wrap{position:relative;z-index:1}
+.machine-left-bg{position:absolute;left:0;top:0;bottom:0;width:62%;z-index:0;pointer-events:none;background:url(img/machine-bg.webp) left center/contain no-repeat}
+.machine-left-bg:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 24% 52%,rgba(255,255,255,.3),rgba(255,255,255,0) 58%)}
+.machine-left-bg svg{position:absolute;inset:0;width:100%;height:100%}
+.machine-section{padding:56px 0 0}
+.machine-section .wrap{max-width:1240px}
+.machine-section .split{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end}
+.machine-section .split>div:last-child{padding-bottom:56px}
+.machine-img-wrap{position:relative;margin-left:-6%}
+.machine-img{display:block;width:100%;max-width:none;height:auto;filter:drop-shadow(0 28px 34px rgba(90,30,0,.3))}
+.machine-img-wrap .phone{margin-bottom:40px}
+.app-img,.person-img{display:block;width:100%;height:auto;margin:0 auto;will-change:transform}
+.app-img{max-width:440px;filter:drop-shadow(0 28px 34px rgba(90,30,0,.35))}
+.person-img{max-width:520px}
+.photo{aspect-ratio:4/3;border-radius:28px;background:linear-gradient(135deg,#fde7c9,#ffd29a);box-shadow:0 30px 60px rgba(245,124,0,.25);display:grid;place-items:center;color:#9a5300;font-weight:700;text-align:center;padding:10px;will-change:transform}
+
+.ov{background:#fff8f0}
+.dash{display:block;width:min(820px,100%);margin:0 auto;filter:drop-shadow(0 30px 40px rgba(150,70,0,.25))}
+.cap{font-size:.78rem;color:var(--muted);margin-top:16px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.steps>div{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 14px 40px rgba(20,17,13,.06)}
+.num{width:40px;height:40px;border-radius:50%;background:var(--orange);color:#fff;font-weight:800;display:grid;place-items:center;margin-bottom:14px}
+.steps h3{font-size:1.05rem;margin-bottom:10px}
+.steps p{font-size:.88rem;color:var(--muted)}
+
+.soft h2{font-size:1.3rem;text-transform:uppercase;margin-bottom:14px;color:var(--ink)}
+.soft p{font-size:.88rem;color:var(--muted);margin-bottom:12px}
+.soft .block{margin-bottom:34px}
+
+.dot{flex:none;width:26px;height:26px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;font-size:.72rem;font-weight:700}
+.why,.faq{display:grid;grid-template-columns:1fr 1fr;gap:26px 50px;text-align:left}
+.why h3,.faq h3{display:flex;gap:10px;align-items:center;margin-bottom:4px;font-size:.9rem}
+.why h3{text-transform:uppercase;font-size:.82rem}
+.why p,.faq p{font-size:.86rem;color:var(--muted);padding-left:36px}
+.kf{display:grid;grid-template-columns:1fr 1fr;gap:28px 50px;margin:30px 0 34px;text-align:left}
+.kf h3{font-size:.95rem;text-transform:uppercase;margin-bottom:6px}
+.kf p{font-size:.92rem;margin:0}
+
+.plx{background:linear-gradient(rgba(20,17,13,.8),rgba(20,17,13,.8)),repeating-linear-gradient(45deg,#2a2118 0 40px,#1a150f 40px 80px);background-attachment:fixed;color:#fff;text-align:center;padding:130px 0}
+.plx h2{font-size:clamp(1.6rem,4vw,2.7rem);max-width:760px;margin:0 auto 16px}
+.plx p{color:#e5dac6;max-width:560px;margin:0 auto 28px}
+
+.sticky{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(20,17,13,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transform:translateY(115%);transition:transform .25s}
+.sticky.on{transform:none}
+.sticky .btn{display:block;text-align:center;width:100%}
+footer{border-top:1px solid var(--line);padding:30px 0;font-size:.7rem;color:#666}
+footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px;font-weight:700}
+footer nav{gap:16px;font-size:.72rem}
+footer p{margin-bottom:10px}
+
+
+/* ---- picture placement: big, bleeding to the section edge, flush with the bottom ---- */
+@media(min-width:901px){
+ :root{--bleed:calc(-1 * (max(0px,(100vw - 1240px)/2) + 20px))}
+ .app-section{padding:0}
+ .app-section .wrap{max-width:1240px}
+ .app-section .split{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:end;gap:36px}
+ .app-section .split>div:last-child{padding:64px 0}
+ .app-media{margin-left:var(--bleed);align-self:end}
+ .app-section .app-img{max-width:660px;width:100%;margin:0 0 0 4vw;display:block}
+
+ .machine-section .split{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:end;gap:36px}
+ .machine-section .split>div:last-child{padding:64px 0}
+ .machine-img-wrap{margin-left:var(--bleed)}
+ .machine-img{width:100%;max-width:760px;display:block;margin:0}
+
+ .soft-section{padding:0}
+ .soft-section .split.rev{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:end;gap:36px}
+ .soft-section .split>div:first-child{padding:64px 0}
+ .soft-section .order{align-self:end;margin-right:var(--bleed)}
+ .soft-section .person-img{max-width:620px;width:100%;margin:0 0 0 auto;display:block}
+}
+
+@media(max-width:900px){
+ nav a:not(.btn){display:none}
+ .hero .grid,.three,.steps,.split,.split.rev,.why,.kf,.faq,.machine-section .split{grid-template-columns:minmax(0,1fr)}
+ .machine-section{padding-top:34px}
+ .machine-section .split>div:last-child{padding-bottom:46px}
+ .machine-img-wrap{margin:0 auto;max-width:400px}
+ .hero h1{margin-top:0}
+ .split.rev .order{order:-1}
+ .chip,.illus{display:none}
+ .hero:after{background:linear-gradient(180deg,rgba(255,222,182,.9) 0%,rgba(255,230,200,.7) 55%,rgba(255,238,216,.2) 100%)}
+ .orange h2{font-size:1.45rem}
+ .plx{background-attachment:scroll;padding:80px 0}
+ .sticky{display:block}
+ footer{padding-bottom:90px}
+}
+@media(max-width:600px){
+ section{padding:46px 0}
+ .hero{padding:34px 0 52px}
+ .hero .grid{gap:26px}
+ .hero h1{font-size:clamp(1.8rem,8.5vw,2.4rem);margin-bottom:10px}
+ .hero .sub{font-size:.92rem;margin-bottom:16px}
+ .logo{font-size:.9rem;letter-spacing:.08em}
+ nav .btn{padding:10px 16px;min-height:40px}
+ .btn{padding:15px 22px}
+ .app-img{max-width:320px}
+ .person-img{max-width:360px}
+ .why p,.faq p{padding-left:0}
+ .machine-section .split>div:last-child{padding-bottom:40px}
+ .video{border-radius:16px;margin-bottom:16px}
+ .mk-list{flex-wrap:nowrap;overflow-x:auto;margin:0 -20px;padding:2px 20px 6px;scrollbar-width:none}
+ .mk-list::-webkit-scrollbar{display:none}
+ .mk-list li{white-space:nowrap}
+ .card{padding:22px;border-radius:20px}
+ .sec-title{font-size:1.45rem}
+ .three>div,.steps>div{padding:22px}
+ .cta-row .btn,.orange .btn,.soft .btn{display:block;text-align:center}
+ .phone{width:min(210px,62%)}
+ .plx{padding:64px 0}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}#mk .ma{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+
+<!-- reusable illustrations: replace with final artwork from the design department -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="ph" viewBox="0 0 200 400">
+  <rect x="2" y="2" width="196" height="396" rx="30" fill="#14110d"/><rect x="10" y="10" width="180" height="380" rx="24" fill="#fff"/>
+  <rect x="72" y="16" width="56" height="9" rx="4.5" fill="#14110d"/>
+  <rect x="24" y="44" width="64" height="8" rx="4" fill="#cfc6bb"/><rect x="24" y="60" width="100" height="16" rx="5" fill="#2a1a0a"/>
+  <path d="M24 200 L50 168 L74 180 L100 136 L126 156 L150 108 L176 122 V222 H24Z" fill="#f57c00" opacity=".14"/>
+  <path d="M24 200 L50 168 L74 180 L100 136 L126 156 L150 108 L176 122" fill="none" stroke="#f57c00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#e65100"><rect x="34" y="176" width="8" height="22" rx="2"/><rect x="82" y="150" width="8" height="26" rx="2"/><rect x="134" y="120" width="8" height="30" rx="2"/></g>
+  <g fill="#ece4d8"><rect x="24" y="240" width="152" height="34" rx="10"/><rect x="24" y="282" width="152" height="34" rx="10"/><rect x="24" y="324" width="152" height="34" rx="10"/></g>
+  <g fill="#f57c00"><circle cx="42" cy="257" r="9"/><circle cx="42" cy="299" r="9"/><circle cx="42" cy="341" r="9"/></g>
+  <g fill="#cfc6bb"><rect x="60" y="252" width="50" height="8" rx="4"/><rect x="60" y="294" width="50" height="8" rx="4"/><rect x="60" y="336" width="50" height="8" rx="4"/></g>
+  <rect x="134" y="249" width="34" height="16" rx="8" fill="#f57c00"/><circle cx="160" cy="257" r="6" fill="#fff"/>
+ </symbol>
+ <symbol id="dash" viewBox="0 0 640 380">
+  <rect x="2" y="2" width="636" height="376" rx="18" fill="#14110d"/><rect x="12" y="30" width="616" height="338" rx="10" fill="#fff"/>
+  <g fill="#f57c00"><circle cx="26" cy="16" r="4"/><circle cx="40" cy="16" r="4" opacity=".6"/><circle cx="54" cy="16" r="4" opacity=".3"/></g>
+  <rect x="12" y="30" width="110" height="338" fill="#fff3e3"/>
+  <g fill="#e9d8c2"><rect x="26" y="50" width="70" height="10" rx="5"/><rect x="26" y="78" width="56" height="10" rx="5"/><rect x="26" y="106" width="64" height="10" rx="5"/><rect x="26" y="134" width="50" height="10" rx="5"/></g>
+  <g stroke="#f1e6d6"><path d="M140 100H470M140 150H470M140 200H470M140 250H470M140 300H470"/></g>
+  <g stroke="#e65100" stroke-width="2"><path d="M160 210V280M190 190V260M220 200V240M250 170V230M280 150V220M310 160V200M340 120V190M370 130V170M400 90V160M430 100V140"/></g>
+  <g fill="#f57c00"><rect x="154" y="226" width="12" height="40" rx="2"/><rect x="214" y="208" width="12" height="22" rx="2"/><rect x="274" y="168" width="12" height="38" rx="2"/><rect x="334" y="136" width="12" height="40" rx="2"/><rect x="394" y="108" width="12" height="38" rx="2"/></g>
+  <g fill="#7a4a1f" opacity=".5"><rect x="184" y="202" width="12" height="42" rx="2"/><rect x="244" y="184" width="12" height="36" rx="2"/><rect x="304" y="168" width="12" height="24" rx="2"/><rect x="364" y="140" width="12" height="22" rx="2"/><rect x="424" y="112" width="12" height="20" rx="2"/></g>
+  <path d="M150 260 L220 232 L290 200 L350 160 L410 120 L460 108" fill="none" stroke="#e65100" stroke-width="3" stroke-linecap="round"/>
+  <rect x="490" y="50" width="124" height="120" rx="12" fill="#fff3e3"/><rect x="502" y="64" width="60" height="9" rx="4" fill="#cfb690"/><rect x="502" y="86" width="40" height="18" rx="9" fill="#f57c00"/><circle cx="530" cy="95" r="6" fill="#fff"/>
+  <rect x="502" y="120" width="96" height="8" rx="4" fill="#e9d8c2"/><rect x="502" y="138" width="70" height="8" rx="4" fill="#e9d8c2"/>
+  <g fill="#ece4d8"><rect x="490" y="186" width="124" height="34" rx="9"/><rect x="490" y="228" width="124" height="34" rx="9"/><rect x="490" y="270" width="124" height="34" rx="9"/><rect x="140" y="318" width="330" height="34" rx="9"/></g>
+ </symbol>
+</svg>
+
+<header class="nav">
+ <div class="wrap">
+  <a class="logo" href="#"><i><b>A</b></i> ALPHA AI</a>
+  <nav aria-label="Main">
+   <a href="#about">About Us</a><a href="#contact">Contact Us</a><a href="#">Login</a>
+   <a class="btn" href="#signup">Get started</a>
+  </nav>
+ </div>
+</header>
+
+<!-- HERO -->
+<div class="hero" id="signup">
+ <div class="bgm" data-speed="0.08" aria-hidden="true">
+  <svg id="mk" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+   <defs><linearGradient id="ar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e65100" stop-opacity=".28"/><stop offset="1" stop-color="#e65100" stop-opacity="0"/></linearGradient></defs>
+  </svg>
+ </div>
+ <div class="chip c1" data-speed="0.18" aria-hidden="true"><b>EUR/USD</b><svg viewBox="0 0 60 20"><polyline points="0,15 10,12 20,14 30,8 40,10 50,4 60,6"/></svg></div>
+ <div class="chip c2" data-speed="-0.12" aria-hidden="true"><b>BTC/USD</b><svg viewBox="0 0 60 20"><polyline points="0,8 10,12 20,6 30,11 40,5 50,9 60,3"/></svg></div>
+ <div class="chip c3" data-speed="0.14" aria-hidden="true"><b>XAU/USD</b><svg viewBox="0 0 60 20"><polyline points="0,14 10,13 20,9 30,11 40,6 50,7 60,2"/></svg></div>
+ <div class="chip c4" data-speed="-0.16" aria-hidden="true"><b>Auto trading</b><span class="tg"></span></div>
+ <div class="chip c5" data-speed="0.1" aria-hidden="true"><b>US500</b><svg viewBox="0 0 60 20"><polyline points="0,12 10,8 20,10 30,5 40,9 50,4 60,5"/></svg></div>
+ <span class="illus" aria-hidden="true">Illustrative graphics only</span>
+ <div class="wrap">
+  <div class="grid">
+   <div>
+    <h1>Alpha AI</h1>
+    <p class="sub">Ready to explore the global financial markets? Join a multi-asset automated trading platform covering Forex, Cryptocurrency, Futures, Indices, Metals, Shares and Traded Goods. Trading carries a high risk of losing money—capital is at risk.</p>
+    <div class="video" id="heroVideo" data-video="https://www.youtube.com/watch?v=_P3rFvfq_Bg" data-poster="">
+     <div class="vph"><span class="play"></span><span>Your video goes here</span></div>
+    </div>
+    <ul class="mk-list"><li>Forex</li><li>Cryptocurrency</li><li>Futures</li><li>Indices</li><li>Metals</li><li>Shares</li><li>Traded Goods</li></ul>
+   </div>
+   <form class="card" id="form" novalidate>
+    <h2>OPEN YOUR FREE ACCOUNT</h2>
+    <label class="sr" for="fn">Your name</label><input id="fn" name="fn" placeholder="Your name" autocomplete="given-name" required>
+    <label class="sr" for="ln">Your last name</label><input id="ln" name="ln" placeholder="Your last name" autocomplete="family-name" required>
+    <label class="sr" for="em">Email</label><input id="em" name="em" type="email" placeholder="Email" autocomplete="email" required>
+    <label class="sr" for="phn">Phone</label><input id="phn" name="ph" type="tel" placeholder="Phone" autocomplete="tel" required>
+    <button class="btn" type="submit">Start Trading Now</button>
+    <div id="msg" role="status"></div>
+    <small>By registering, you agree to our <a href="#" style="text-decoration:underline">Terms of Use</a> and acknowledge our <a href="#" style="text-decoration:underline">Privacy Policy</a>. Your personal information may be shared with our trusted third-party trading partners as detailed in our privacy policy. Leveraged products such as CFDs and futures carry a high risk of losing money.</small>
+   </form>
+  </div>
+ </div>
+</div>
+
+<!-- GATEWAY -->
+<section id="about">
+ <div class="wrap">
+  <h2 class="sec-title center" style="margin-bottom:34px">Alpha AI – Your Gateway to Global Financial Markets</h2>
+  <div class="three">
+   <div><h3>Automated Trading</h3><p>Alpha AI's automated trading software allows you to trade across multiple markets with reduced manual input. Automation can help limit manual errors and missed opportunities, but it cannot remove market risk or guarantee any result. The system analyzes market data to support trading decisions and is designed to be accessible to beginners, although trading is not suitable for everyone and you should make sure you understand the risks first. You do not need to monitor the markets constantly—the software executes according to the preferences you set. Web-based and user-friendly, our platform works on desktop and mobile devices, giving you the flexibility to trade wherever you are. With Alpha AI, accessing global markets is simple, but the outcome of every trade remains uncertain.</p></div>
+   <div><h3>Security First</h3><p>Your security is a priority. Alpha AI partners with brokers who operate secure trading environments [INSERT VERIFIED BROKER SECURITY STANDARDS]. We aim to keep your privacy and personal information confidential and protected through [INSERT VERIFIED ENCRYPTION AND CYBERSECURITY MEASURES]. We take steps to safeguard your data, but no system can eliminate the risk of data breaches or cyber threats entirely. Our selection process for partner brokers includes [INSERT VERIFIED SELECTION CRITERIA]. Join the Alpha AI platform today and trade with clear information about the risks involved.</p></div>
+   <div><h3>24/7 Support</h3><p>At Alpha AI, you're never alone in your trading journey. We understand that trading can be challenging, especially if you're just starting out. That's why our partner brokers offer personalized support designed to address your needs and concerns [CONFIRM SUPPORT HOURS AND CHANNELS]. Whether you have questions about account setup, trading tools, or technical issues, assistance is just a click away. Our support system aims to provide prompt and accurate guidance, helping you make your own informed decisions. Become part of a community where every trader, from novice to seasoned expert, can find the help they need.</p></div>
+  </div>
+  <div class="cta-row"><a class="btn" href="#signup">Join Alpha AI and Start Trading Today!</a></div>
+ </div>
+</section>
+
+<!-- GLOBAL MARKETS -->
+<section class="orange machine-section">
+ <div class="machine-left-bg" aria-hidden="true">
+  <svg viewBox="0 0 600 600" preserveAspectRatio="xMinYMid slice">
+   <g fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 11">
+    <circle cx="130" cy="300" r="170"/><circle cx="130" cy="300" r="250"/><circle cx="130" cy="300" r="330"/><circle cx="130" cy="300" r="410"/>
+   </g>
+   <g fill="#fff"><circle cx="300" cy="300" r="5" fill-opacity=".8"/><circle cx="283" cy="101" r="4" fill-opacity=".6"/><circle cx="62" cy="535" r="6" fill-opacity=".55"/><circle cx="460" cy="360" r="4" fill-opacity=".5"/></g>
+  </svg>
+ </div>
+ <div class="wrap split">
+  <div class="machine-img-wrap">
+   <!-- Images are in the "img" folder next to index.html: machine.webp, with-neo.webp, person.webp (transparent backgrounds). If one is missing, a drawn placeholder is shown. -->
+   <img class="machine-img" loading="lazy" src="img/machine.webp" width="878" height="604" sizes="(max-width:900px) 90vw, 620px" alt="Smartphone showing the Alpha AI app" onerror="imgFail(this)">
+   <svg class="phone" hidden viewBox="0 0 200 400" role="img" aria-label="Alpha AI app on a smartphone (placeholder illustration)"><use href="#ph"/></svg>
+  </div>
+  <div>
+   <h2>Explore Global Markets with a Multi-Asset Trading Platform!</h2>
+   <p>Are you ready to take a closer look at the world's financial markets? Alpha AI is your gateway to Forex, Cryptocurrency, Futures, Indices, Metals, Shares and Traded Goods, all in one place. Prices can move quickly in either direction, and you may lose some or all of your capital. Make sure you understand the risks before you trade!</p>
+   <p>Review costs with full transparency. [INSERT VERIFIED FEE INFORMATION: spreads, commissions, overnight financing, deposit and withdrawal fees.] Trading costs reduce any gains and add to any losses, so always check them before you trade.</p>
+   <p>Our intuitive and beginner-friendly interface is designed to make trading easier to approach. Whether you're a seasoned trader or completely new to the markets, Alpha AI offers tools, educational resources, and a supportive community [CONFIRM RESOURCES AVAILABLE]. Register now and start learning about the markets today—trading involves risk and is not suitable for everyone.</p>
+   <a class="btn light" href="#signup">JOIN ALPHA AI AND START TRADING TODAY</a>
+  </div>
+ </div>
+</section>
+
+<!-- PLATFORM OVERVIEW -->
+<section class="ov center">
+ <div class="wrap">
+  <h2 class="sec-title" style="margin-bottom:30px">Platform Overview</h2>
+  <svg class="dash" viewBox="0 0 640 380" role="img" aria-label="Alpha AI platform preview (placeholder illustration)"><use href="#dash"/></svg>
+  <p class="cap">Alpha AI App Platform Preview – See the Software in Action (illustrative only; not an indication of actual or future results)</p>
+ </div>
+</section>
+
+<!-- STEPS -->
+<section>
+ <div class="wrap">
+  <div class="steps">
+   <div><div class="num">1</div><h3>Open a Free Account</h3><p>Registering with Alpha AI is simple and secure. Complete the registration form provided above, and you will be matched with one of our partner brokers [CONFIRM MATCHING PROCESS]. Ensure the broker is regulated in your jurisdiction, and begin your journey into the financial markets. Registration is free and your personal data is handled in accordance with our Privacy Policy.</p></div>
+   <div><div class="num">2</div><h3>Verify Your Account</h3><p>After signing up, an account manager will contact you to verify your details and help you explore various trading features. You'll receive support, guidance on market signals, trading robots, and insights on both fundamental and technical analysis to help you understand the tools and risks before you start trading.</p></div>
+   <div><div class="num">3</div><h3>Start Trading</h3><p>When you're ready, deposit your initial investment of [CONFIRM MINIMUM DEPOSIT – original copy stated $250] to begin trading. With your account funded, access the trading dashboard and start trading your chosen markets. Only trade with money you can afford to lose. Our platform is designed to give you control over your trading parameters and provides ongoing support as you navigate the financial markets.</p></div>
+  </div>
+  <div class="cta-row"><a class="btn" href="#signup">START YOUR ALPHA AI JOURNEY NOW</a></div>
+ </div>
+</section>
+
+<!-- APP FEATURES -->
+<section class="soft soft-section" style="background:#fff8f0">
+ <div class="wrap split rev">
+  <div>
+   <div class="block">
+    <h2>Alpha AI Trading Software</h2>
+    <p>Alpha AI platform was developed to give users access to a range of global markets in one place. Automation can reduce the time spent on manual tasks—users set their preferences [INSERT VERIFIED DAILY SETUP TIME, IF ANY]—but it does not remove risk, and no profit or result is guaranteed.</p>
+    <p>Utilizing trading algorithms and technology, the system provides real-time market data and trading tools to support market participation. Even new investors should understand that fast-moving markets carry a high risk of loss, particularly when using leveraged products such as CFDs and futures.</p>
+    <p>Our selected broker partners provide trading environments with [INSERT VERIFIED BROKER DETAILS AND LICENCE DETAILS]. These brokers offer trading tools and resources to support your trading decisions.</p>
+    <p>At Alpha AI, safeguarding personal information is a priority. We implement [INSERT VERIFIED SECURITY PROTOCOLS] to help protect your data, allowing you to concentrate on managing your trading and your risk. Your financial security depends on informed decisions, and we encourage you to read all risk warnings.</p>
+   </div>
+   <div class="block">
+    <h2>Why Trade Global Markets?</h2>
+    <p>This automated platform is designed to accommodate both novice and experienced traders across Forex, Cryptocurrency, Futures, Indices, Metals, Shares and Traded Goods. Its intuitive interface makes the trading experience straightforward for beginners, while providing customization options that allow experienced traders to refine their strategies. Platform availability is [CONFIRM 24/7 AVAILABILITY]; individual markets have different trading hours.</p>
+    <p>Beyond simplicity, Alpha AI provides tools that facilitate trading while maintaining the flexibility to adapt to changing market conditions. Market analysis and execution tools can support your decisions, but they cannot guarantee returns, making risk awareness essential for traders in the dynamic world of global markets.</p>
+    <a class="btn" href="#signup">ACTIVATE YOUR FREE TRADING ACCOUNT TODAY</a>
+   </div>
+  </div>
+  <div class="order">
+   <img class="person-img" loading="lazy" src="img/person.webp" width="829" height="999" alt="Person using the Alpha AI app on a phone" onerror="imgFail(this)">
+   <div class="photo" hidden role="img" aria-label="Placeholder for a person using the Alpha AI app">IMAGE: PERSON USING<br>THE APP GOES HERE</div>
+  </div>
+ </div>
+</section>
+
+<!-- APP -->
+<section class="orange app-section">
+ <div class="wrap split">
+  <div class="app-media">
+   <img class="app-img" loading="lazy" src="img/with-neo.webp" width="801" height="639" alt="Alpha AI app on a smartphone" onerror="imgFail(this)">
+   <svg class="phone" hidden viewBox="0 0 200 400" role="img" aria-label="Alpha AI app screenshot (placeholder illustration)"><use href="#ph"/></svg>
+  </div>
+  <div>
+   <h2>Start Trading with Alpha AI App</h2>
+   <p>Alpha AI App is designed to streamline and simplify trading across multiple markets, providing automated tools that can reduce daily trading effort. Users set their preferences, and the software executes according to those settings. Utilizing algorithmic trading technology and modern financial technology, our trading application aims to support your trading, but results are not guaranteed and losses can occur.</p>
+   <p>The platform is intuitive, highly customizable, and built to adapt to traders of all skill levels—from complete beginners to seasoned professionals. Trading carries a high risk of losing money, and past performance is not a reliable indicator of future results. Don't miss the opportunity to be part of this growing community. Join today and explore the markets.</p>
+   <a class="btn light" href="#signup">Join Alpha AI and Explore the Markets Today!</a>
+  </div>
+ </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section>
+ <div class="wrap center">
+  <h2 class="sec-title">Why Choose Alpha AI?</h2>
+  <p class="sub2">Discover what Alpha AI offers traders looking for a multi-asset automated trading solution:</p>
+  <div class="why">
+   <div><h3><span class="dot">1</span>Clear Pricing</h3><p>Review all costs before you trade. [INSERT VERIFIED FEE INFORMATION: spreads, commissions, financing, deposit and withdrawal fees.]</p></div>
+   <div><h3><span class="dot">2</span>Seven Markets, One Platform</h3><p>Access Forex, Cryptocurrency, Futures, Indices, Metals, Shares and Traded Goods, with tools to support your own trading strategy.</p></div>
+   <div><h3><span class="dot">3</span>Easy to Use Interface</h3><p>No downloads required—trade directly from your browser on desktop or mobile. Enjoy an intuitive platform that's accessible to traders of all experience levels.</p></div>
+   <div><h3><span class="dot">4</span>Advanced Tools</h3><p>Algorithmic tools and market data support your trading decisions. Tools do not guarantee profits and cannot eliminate the risk of loss, particularly in volatile market conditions.</p></div>
+   <div><h3><span class="dot">5</span>Simple Registration</h3><p>Registration is straightforward. Simply fill out our short form, verify your account, and begin trading once your account is verified and funded.</p></div>
+   <div><h3><span class="dot">6</span>Extended Market Access</h3><p>Platform availability: [CONFIRM PLATFORM AVAILABILITY]. Individual markets have different trading hours, and conditions can change quickly.</p></div>
+   <div><h3><span class="dot">7</span>Low Initial Deposit</h3><p>Start trading with as little as [CONFIRM MINIMUM DEPOSIT – original copy stated $250]. A modest deposit does not reduce risk; you may lose some or all of the capital you deposit.</p></div>
+   <div><h3><span class="dot">8</span>Payment Options</h3><p>Deposit and withdraw funds using [INSERT VERIFIED PAYMENT METHODS]. [INSERT VERIFIED PAYMENT FEES AND PROCESSING TIMES.]</p></div>
+   <div><h3><span class="dot">9</span>Demo Mode</h3><p>Practice trading in our demo mode before entering live trades [CONFIRM DEMO AVAILABILITY]. Demo results do not reflect live trading conditions and do not predict live results.</p></div>
+   <div><h3><span class="dot">10</span>Customer Support</h3><p>Our support team is available [CONFIRM SUPPORT HOURS] to answer your questions and help resolve any issues.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- KEY FEATURES -->
+<section class="orange">
+ <div class="wrap center">
+  <h2>Alpha AI - Key Features</h2>
+  <p style="max-width:620px;margin:0 auto">Discover the tools Alpha AI offers across global markets:</p>
+  <div class="kf">
+   <div><h3>Real-Time VPS Technology</h3><p>Alpha AI utilizes VPS (Virtual Private Server) technology designed to support fast and stable trade execution. This is intended to reduce the impact of system outages or internet disruptions, although no system can fully eliminate outages, delays or slippage.</p></div>
+   <div><h3>Time Leap Feature</h3><p>Alpha AI's Time Leap feature is designed to support faster trade execution [INSERT VERIFIED TECHNICAL DESCRIPTION]. Faster execution does not guarantee profitable trades, and slippage may occur in fast-moving markets.</p></div>
+   <div><h3>Advanced Customization</h3><p>Alpha AI offers comprehensive customization options, enabling you to tailor your trading preferences. Set parameters such as trading hours, risk levels, and preferred assets across Forex, Cryptocurrency, Futures, Indices, Metals, Shares and Traded Goods to match your trading strategy and risk tolerance.</p></div>
+   <div><h3>Fully Automated Trading</h3><p>Trading with Alpha AI requires minimal manual effort. Spend a few minutes setting your trading preferences, and our automated system will execute trades according to your settings. Automated trading carries risk and can result in losses.</p></div>
+  </div>
+  <a class="btn light" href="#signup">Join Alpha AI and Start Trading Today</a>
+ </div>
+</section>
+
+<!-- PARALLAX DIVIDER (text taken from the approved copy) -->
+<section class="plx">
+ <div class="wrap">
+  <h2 data-speed="0.06">Trading carries a high risk of losing money. Your capital is at risk.</h2>
+  <p>Only trade with money you can afford to lose.</p>
+  <a class="btn" href="#signup">Join Alpha AI and Start Trading Today</a>
+ </div>
+</section>
+
+<!-- FAQ -->
+<section>
+ <div class="wrap">
+  <h2 class="sec-title center" style="margin-bottom:34px">FREQUENTLY ASKED QUESTIONS</h2>
+  <div class="faq">
+   <div><h3><span class="dot">1</span>What exactly is Alpha AI?</h3><p>Alpha AI is a gateway to multi-asset trading, connecting both beginners and professionals with partner brokers [INSERT BROKER AND LICENCE DETAILS]. Our partners provide an intuitive trading environment, support, and trading tools across Forex, Cryptocurrency, Futures, Indices, Metals, Shares and Traded Goods.</p></div>
+   <div><h3><span class="dot">2</span>Is Alpha AI trustworthy?</h3><p>Alpha AI selects partner brokers and reviews their operations [INSERT VERIFIED REVIEW PROCESS AND LICENCE DETAILS]. Beware of imitation sites and always ensure you're using our official website. We recommend verifying your broker's regulatory status and compliance with local regulations before you deposit any funds.</p></div>
+   <div><h3><span class="dot">3</span>How much money do I need to start trading?</h3><p>You can start by depositing as little as [CONFIRM MINIMUM DEPOSIT – original copy stated $250]. Only deposit money you can afford to lose; a small deposit still carries the risk of losing the full amount.</p></div>
+   <div><h3><span class="dot">4</span>Is trading risky?</h3><p>Yes. Trading Forex, Cryptocurrency, Futures, Indices, Metals, Shares and Traded Goods carries a high risk of losing money. Leveraged products such as CFDs and futures can magnify losses as well as gains, and your capital is at risk. Always trade responsibly, using only money you can afford to lose.</p></div>
+   <div><h3><span class="dot">5</span>What returns can I expect from trading?</h3><p>No returns are guaranteed. Results vary widely, and you may lose some or all of your capital. Past performance is not a reliable indicator of future results, and Alpha AI does not predict or promise any market outcome.</p></div>
+   <div><h3><span class="dot">6</span>Which markets can I trade?</h3><p>Through our partner brokers [CONFIRM AVAILABLE INSTRUMENTS BY BROKER AND JURISDICTION], you may be able to trade seven markets: Forex, Cryptocurrency, Futures, Indices, Metals, Shares and Traded Goods (commodities). Availability may vary by broker, account type and country of residence, and some products may not be offered in your jurisdiction. Each market carries its own risks and trading hours.</p></div>
+  </div>
+ </div>
+</section>
+
+<footer id="contact">
+ <div class="wrap">
+  <div class="row">
+   <span>Alpha AI</span>
+   <nav aria-label="Footer"><a href="#">Login</a><a href="#about">About Us</a><a href="#">Terms and Conditions</a><a href="#">Privacy Policy</a><a href="#contact">Contact Us</a></nav>
+  </div>
+  <p><b>HIGH RISK WARNING:</b> Trading leveraged products such as CFDs and futures across Forex, Cryptocurrency, Futures, Indices, Metals, Shares and Traded Goods carries a high risk of losing money rapidly. Your capital is at risk. These products may not be suitable for all investors. [INSERT PERCENTAGE OF RETAIL INVESTOR ACCOUNTS THAT LOSE MONEY WITH THE RELEVANT PROVIDER, WHERE REQUIRED BY YOUR REGULATOR.] Only invest funds you can afford to lose. Platform provides technology tools for trading but does not participate in any financial gains or losses from your activities. We do not offer financial advice and are not responsible for any trading decisions or potential losses incurred through the use of our platform.</p>
+  <p><b>SITE RISK DISCLOSURE:</b> Alpha AI is not liable for any losses or damages that arise from relying on the information presented on this site. This includes, but is not limited to, educational content, market analysis, price quotes, and general trading information. Always seek professional financial advice before trading and never invest more than you can afford to lose. Trading Forex, Cryptocurrency, Futures, Indices, Metals, Shares and Traded Goods involves inherent risks, and website will not be held responsible for any financial losses resulting from using or relying on content from this website.</p>
+  <p><b>LEGAL RESTRICTIONS:</b> Regulations regarding financial services vary across jurisdictions. It is your responsibility to verify and comply with all applicable laws in your region before accessing or using our platform. Our services may not be legally accessible in your jurisdiction. Trading CFDs, futures and other leveraged or cryptocurrency-related products may be restricted in certain countries. Specifically, the FCA (UK) prohibits the sale and promotion of CFDs based on cryptocurrencies (Policy Statement PS20/10), and solicitation of US residents for certain trading products is regulated by the CFTC. Marketing materials provided by this website are not intended for distribution to residents in jurisdictions where such activities are restricted. Please note that Alpha AI may receive compensation from users who register with our advertising partners. [INSERT LICENCE DETAILS / REGULATORY STATUS.] Your continued use of this site implies consent to our cookie policy.</p>
+  <p><b>DISCLAIMER ON REPRESENTATION:</b> Any brand names mentioned on this website are for marketing purposes only and do not indicate endorsements or partnerships with actual entities. Images and videos on this site include professional actors and do not portray actual traders or user experiences. All depictions are illustrative only and should not be interpreted as genuine testimonials or endorsements. Information provided on this site is intended solely for educational purposes and does not constitute any form of binding agreement or guarantee.</p>
+  <p style="text-align:right">© Alpha AI 2026</p>
+ </div>
+</footer>
+
+<div class="sticky" id="stk"><a class="btn" href="#form">Start Trading Now</a></div>
+
+<script>
+// 1) Hero background: candlestick chart, moving-average line and auto-trade signals (generated, decorative).
+(function(){
+  var s=document.getElementById('mk'),W=1200,H=700,N=46,seed=7,i;
+  function r(){seed=(seed*16807)%2147483647;return seed/2147483647}
+  var h='<g class="g">';
+  for(i=1;i<9;i++)h+='<line x1="0" x2="'+W+'" y1="'+i*78+'" y2="'+i*78+'"/>';
+  for(i=1;i<14;i++)h+='<line y1="0" y2="'+H+'" x1="'+i*86+'" x2="'+i*86+'"/>';
+  h+='</g>';
+  var p=470,prev=p,c=[],ma=[];
+  for(i=0;i<N;i++){
+    var o=prev,cl=Math.max(150,Math.min(560,o+(r()-.5)*44-6));prev=cl;
+    c.push({o:o,c:cl,h:Math.min(o,cl)-r()*16-3,l:Math.max(o,cl)+r()*16+3,x:30+i*(W-60)/(N-1)});
+  }
+  c.forEach(function(k,j){
+    var up=k.c<k.o,col=up?'#f57c00':'#7a4a1f',op=up?.55:.32;
+    h+='<line x1="'+k.x+'" x2="'+k.x+'" y1="'+k.h+'" y2="'+k.l+'" stroke="'+col+'" stroke-opacity="'+op+'" stroke-width="2"/>';
+    h+='<rect x="'+(k.x-6)+'" y="'+Math.min(k.o,k.c)+'" width="12" height="'+Math.max(4,Math.abs(k.o-k.c))+'" rx="2" fill="'+col+'" fill-opacity="'+op+'"/>';
+    var a=0,n=0;for(var q=Math.max(0,j-4);q<=j;q++){a+=c[q].c;n++}ma.push([k.x,a/n-40]);
+  });
+  var d='M'+ma.map(function(m){return m[0].toFixed(0)+' '+m[1].toFixed(0)}).join(' L');
+  h+='<path d="'+d+' L'+ma[N-1][0]+' '+H+' L'+ma[0][0]+' '+H+'Z" fill="url(#ar)"/>';
+  h+='<path class="ma" pathLength="1" d="'+d+'"/>';
+  [[7,1],[16,0],[24,1],[33,0],[41,1]].forEach(function(g){ // 1 = buy marker below, 0 = sell marker above
+    var k=c[g[0]],y=g[1]?k.l+22:k.h-22;
+    h+='<path class="sig" d="'+(g[1]?'M'+k.x+' '+(y-9)+' l9 16 h-18z':'M'+k.x+' '+(y+9)+' l9 -16 h-18z')+'"/>';
+  });
+  s.insertAdjacentHTML('beforeend',h);
+})();
+
+// 2) Highlights every [BRACKETED PLACEHOLDER] so nothing unverified goes live unnoticed.
+//    Delete this block once all placeholders are replaced with verified text.
+(function(){
+  var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),a=[],n;
+  while(n=w.nextNode())if(n.parentNode.nodeName!=='SCRIPT'&&/\[[^\]]+\]/.test(n.nodeValue))a.push(n);
+  a.forEach(function(n){
+    var f=document.createDocumentFragment();
+    n.nodeValue.split(/(\[[^\]]+\])/).forEach(function(t){
+      if(/^\[[^\]]+\]$/.test(t)){var m=document.createElement('mark');m.className='ph';m.textContent=t;f.appendChild(m)}
+      else f.appendChild(document.createTextNode(t));
+    });
+    n.parentNode.replaceChild(f,n);
+  });
+})();
+
+// 3) Form: browser-side validation only. Set ENDPOINT to your own backend/CRM URL before launch.
+(function(){
+  var ENDPOINT='',f=document.getElementById('form'),msg=document.getElementById('msg');
+  function say(t,ok){msg.style.color=ok?'#2e7d32':'#c62828';msg.textContent=t}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.fn.value.trim()||!f.ln.value.trim()||!/^\S+@\S+\.\S+$/.test(f.em.value))return say('Please fill in your name, last name and a valid email.');
+    if(f.ph.value.replace(/\D/g,'').length<7)return say('Please enter a valid phone number.');
+    if(!ENDPOINT)return say('Demo mode: set ENDPOINT in the script to send submissions.',true);
+    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({first:f.fn.value,last:f.ln.value,email:f.em.value,phone:f.ph.value})})
+      .then(function(r){if(!r.ok)throw 0;say('Thank you. We will contact you shortly.',true);f.reset()})
+      .catch(function(){say('Failed to submit the form. Please contact the site administrator.')});
+  });
+})();
+
+// 5) Hero video. Put your link in data-video on <div id="heroVideo"> (YouTube, Vimeo, or a direct .mp4/.webm URL).
+//    Optional: data-poster="image URL" for the cover image. Leave data-video empty to keep the placeholder.
+(function(){
+  var v=document.getElementById('heroVideo'),u=(v.dataset.video||'').trim(),p=(v.dataset.poster||'').trim(),h;
+  if(p)v.style.background='center/cover url("'+encodeURI(p)+'")';
+  if(!u)return;
+  var y=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/),m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+  if(y){
+    var id=y[1],o=(location.protocol.indexOf('http')===0)?'&origin='+encodeURIComponent(location.origin):'';
+    // Browsers only allow autoplay when the video is muted; viewers can unmute with the speaker icon.
+    v.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&enablejsapi=1'+o+'" title="Alpha AI video" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+    return;
+  }
+  if(m)h='<iframe src="https://player.vimeo.com/video/'+m[1]+'" title="Alpha AI video" allow="fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+  else h='<video controls playsinline preload="metadata" src="'+encodeURI(u)+'"'+(p?' poster="'+encodeURI(p)+'"':'')+'></video>';
+  v.innerHTML=h;
+})();
+
+// 6) Mobile sticky button: appears once the signup form has scrolled out of view.
+(function(){
+  var b=document.getElementById('stk'),f=document.getElementById('form');
+  if(!b||!('IntersectionObserver' in window))return;
+  new IntersectionObserver(function(e){b.classList.toggle('on',!e[0].isIntersecting&&e[0].boundingClientRect.top<0)}).observe(f);
+})();
+
+// 4) Parallax: elements with data-speed (and phones/photo) move relative to scroll. Off for reduced motion.
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||innerWidth<900)return;
+  var els=[].slice.call(document.querySelectorAll('[data-speed]')),tick=false;
+  [].slice.call(document.querySelectorAll('.phone,.photo,.app-img,.person-img')).forEach(function(e){e.dataset.speed='-0.08';els.push(e)});
+  function run(){
+    var vh=innerHeight;
+    els.forEach(function(el){
+      var b=el.parentElement.getBoundingClientRect();
+      if(b.bottom<-300||b.top>vh+300)return;
+      el.style.transform='translate3d(0,'+(((b.top+b.height/2)-vh/2)*parseFloat(el.dataset.speed)).toFixed(1)+'px,0)';
+    });
+    tick=false;
+  }
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(run)}},{passive:true});
+  addEventListener('resize',run);run();
+})();
+</script>
+</body>
+</html>
