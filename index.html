@@ -203,6 +203,20 @@ footer p{margin-bottom:10px}
  .plx{padding:64px 0}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}#mk .ma{stroke-dashoffset:0}}
+
+/* language switcher */
+.lang{display:flex;align-items:center;gap:8px;margin-left:auto;margin-right:24px}
+.lang button{all:unset;box-sizing:border-box;cursor:pointer;width:34px;height:23px;border-radius:4px;overflow:hidden;opacity:.7;outline:2px solid transparent;outline-offset:2px;transition:opacity .15s,transform .15s,outline-color .15s;box-shadow:0 0 0 1px rgba(255,255,255,.25)}
+.lang button:hover{opacity:1;transform:translateY(-1px)}
+.lang button[aria-pressed="true"]{opacity:1;outline-color:var(--orange)}
+.lang button:focus-visible{outline:3px solid #fff}
+.lang svg{display:block;width:100%;height:100%}
+@media(max-width:900px){
+ html{scroll-padding-top:110px}
+ header.nav .wrap{flex-wrap:wrap;height:auto;padding-top:8px;padding-bottom:8px;row-gap:8px}
+ .lang{order:3;width:100%;justify-content:center;margin:0;gap:14px;padding-bottom:2px}
+ .lang button{width:44px;height:30px;border-radius:5px}
+}
 </style>
 </head>
 <body>
@@ -240,6 +254,25 @@ footer p{margin-bottom:10px}
 <header class="nav">
  <div class="wrap">
   <a class="logo" href="#"><i><b>A</b></i> ALPHA AI</a>
+
+  <div class="lang" role="group" aria-label="Language">
+   <button type="button" data-lang="en" aria-pressed="true" aria-label="English" title="English">
+    <svg viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="8"/><path d="M0 0L60 40M60 0L0 40" stroke="#C8102E" stroke-width="3"/><path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="13"/><path d="M30 0V40M0 20H60" stroke="#C8102E" stroke-width="7"/></svg>
+   </button>
+   <button type="button" data-lang="fi" aria-pressed="false" aria-label="Suomi" title="Suomi">
+    <svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#fff"/><rect x="8" width="5" height="20" fill="#003580"/><rect y="7.5" width="30" height="5" fill="#003580"/></svg>
+   </button>
+   <button type="button" data-lang="de" aria-pressed="false" aria-label="Deutsch" title="Deutsch">
+    <svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#ffce00"/><rect width="30" height="13.4" fill="#dd0000"/><rect width="30" height="6.7" fill="#000"/></svg>
+   </button>
+   <button type="button" data-lang="nl" aria-pressed="false" aria-label="Nederlands" title="Nederlands">
+    <svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#21468b"/><rect width="30" height="13.4" fill="#fff"/><rect width="30" height="6.7" fill="#ae1c28"/></svg>
+   </button>
+   <button type="button" data-lang="fr" aria-pressed="false" aria-label="Français" title="Français">
+    <svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#ef4135"/><rect width="20" height="20" fill="#fff"/><rect width="10" height="20" fill="#0055a4"/></svg>
+   </button>
+  </div>
+
   <nav aria-label="Main">
    <a href="#about">About Us</a><a href="#contact">Contact Us</a><a href="#">Login</a>
    <a class="btn" href="#signup">Get started</a>
@@ -543,6 +576,23 @@ footer p{margin-bottom:10px}
   var b=document.getElementById('stk'),f=document.getElementById('form');
   if(!b||!('IntersectionObserver' in window))return;
   new IntersectionObserver(function(e){b.classList.toggle('on',!e[0].isIntersecting&&e[0].boundingClientRect.top<0)}).observe(f);
+})();
+
+// 7) Language switcher. Content is English for every language for now.
+//    Later: fill TRANSLATIONS and apply it inside setLang().
+(function(){
+  var TRANSLATIONS={en:{},fi:{},de:{},nl:{},fr:{}}; // to be filled when the translations are ready
+  var btns=[].slice.call(document.querySelectorAll('.lang button')),KEY='alpha_lang';
+  function setLang(code,save){
+    if(!TRANSLATIONS[code])code='en';
+    document.documentElement.lang=code;
+    btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lang===code?'true':'false')});
+    if(save){try{localStorage.setItem(KEY,code)}catch(e){}}
+    // TODO: apply TRANSLATIONS[code] to the page here once the texts are provided
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang,true)})});
+  var saved='en';try{saved=localStorage.getItem(KEY)||'en'}catch(e){}
+  setLang(saved,false);
 })();
 
 // 4) Parallax: elements with data-speed (and phones/photo) move relative to scroll. Off for reduced motion.
