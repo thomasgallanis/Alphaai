@@ -62,6 +62,8 @@ nav .btn{padding:8px 16px;font-size:.72rem;box-shadow:none;color:#fff}
 .vph{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:12px;color:#ffd9a8;font-weight:700;font-size:.9rem;text-align:center;background:radial-gradient(circle at 50% 40%,rgba(245,124,0,.25),rgba(20,17,13,0) 65%)}
 .play{width:70px;height:70px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 10px rgba(245,124,0,.28);position:relative}
 .play:after{content:"";position:absolute;left:28px;top:21px;border-left:22px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent}
+.unmute{position:absolute;left:14px;bottom:14px;z-index:3;border:0;cursor:pointer;background:var(--orange);color:#fff;font:700 .85rem/1 "Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:12px 18px;border-radius:30px;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+.unmute:hover{background:var(--deep)}
 .mk-list{display:flex;flex-wrap:nowrap;gap:6px;list-style:none;overflow-x:auto;scrollbar-width:none}
 .mk-list::-webkit-scrollbar{display:none}
 .mk-list li{background:rgba(255,255,255,.7);border:1px solid rgba(230,81,0,.25);border-radius:20px;padding:6px 12px;font-size:.76rem;font-weight:600;color:#5a2a00;white-space:nowrap;flex:none}
@@ -567,25 +569,45 @@ footer p{margin-bottom:10px}
     fr:'https://www.youtube.com/watch?v=dPgvs6FEqqY'   // French
   };
   var TITLES={en:'Alpha AI video',fi:'Alpha AI -video',de:'Alpha AI Video',nl:'Alpha AI video',fr:'Alpha AI vidéo'};
+  var SOUND={en:'Tap for sound',fi:'Napauta: ääni päälle',de:'Ton einschalten',nl:'Tik voor geluid',fr:'Activer le son'};
   var box=document.getElementById('heroVideo'),poster=(box.dataset.poster||'').trim(),current='';
   if(poster)box.style.background='center/cover url("'+encodeURI(poster)+'")';
 
-  function build(u,title){
+  // Talk to the YouTube player (enablejsapi=1 is already on): unmute and set the volume to 100%.
+  function cmd(fn,args){
+    var fr=box.querySelector('iframe');
+    if(fr&&fr.contentWindow)fr.contentWindow.postMessage(JSON.stringify({event:'command',func:fn,args:args||''}),'*');
+  }
+  function loud(){cmd('unMute');cmd('setVolume',[100])}
+
+  function build(u,title,muted){
     var y=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/),m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/);
     if(y){
       var o=(location.protocol.indexOf('http')===0)?'&origin='+encodeURIComponent(location.origin):'';
-      // Browsers only allow autoplay when the video is muted; viewers can unmute with the speaker icon.
-      return '<iframe src="https://www.youtube.com/embed/'+y[1]+'?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&enablejsapi=1'+o+'" title="'+title+'" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+      // Browsers only allow SOUND autoplay after a click/tap on the page; before that the video must start muted.
+      return '<iframe src="https://www.youtube.com/embed/'+y[1]+'?autoplay=1&mute='+(muted?1:0)+'&playsinline=1&rel=0&modestbranding=1&enablejsapi=1'+o+'" title="'+title+'" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
     }
     if(m)return '<iframe src="https://player.vimeo.com/video/'+m[1]+'" title="'+title+'" allow="fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
     return '<video controls playsinline preload="metadata" src="'+encodeURI(u)+'"'+(poster?' poster="'+encodeURI(poster)+'"':'')+'></video>';
   }
 
-  function set(code){
+  // byUser = the visitor clicked a flag, so the browser allows the new video to start with sound.
+  function set(code,byUser){
     var u=(VIDEOS[code]||VIDEOS.en||'').trim();
-    if(!u||u===current)return;          // no link, or this video is already showing
+    if(!u)return;
+    if(u===current){if(byUser){loud();var b=box.querySelector('.unmute');if(b)b.remove()}return}
     current=u;
-    box.innerHTML=build(u,TITLES[code]||TITLES.en);
+    box.innerHTML=build(u,TITLES[code]||TITLES.en,!byUser);
+    var fr=box.querySelector('iframe');
+    if(!fr)return;
+    if(byUser){                                   // already unmuted: just make sure the volume is at max
+      fr.addEventListener('load',function(){[300,1200,2500].forEach(function(t){setTimeout(loud,t)})});
+    }else{                                        // muted autoplay: show a button to turn the sound on at 100%
+      var b=document.createElement('button');
+      b.type='button';b.className='unmute';b.textContent='🔊 '+(SOUND[code]||SOUND.en);
+      b.addEventListener('click',function(){loud();b.remove()});
+      box.appendChild(b);
+    }
   }
   window.AlphaVideo={set:set};
 })();
@@ -607,7 +629,7 @@ footer p{margin-bottom:10px}
     document.documentElement.lang=code;
     btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lang===code?'true':'false')});
     if(save){try{localStorage.setItem(KEY,code)}catch(e){}}
-    if(window.AlphaVideo)AlphaVideo.set(code);   // switch the hero video to this language
+    if(window.AlphaVideo)AlphaVideo.set(code,!!save);   // switch the hero video (with sound if the visitor clicked a flag)
     // TODO: apply TRANSLATIONS[code] to the page here once the texts are provided
   }
   btns.forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang,true)})});
