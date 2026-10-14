@@ -298,7 +298,8 @@ footer p{margin-bottom:10px}
    <div>
     <h1>Alpha AI</h1>
     <p class="sub">Ready to explore the global financial markets? Join a multi-asset automated trading platform covering Forex, Cryptocurrency, Futures, Indices, Metals, Shares and Traded Goods. Trading carries a high risk of losing money—capital is at risk.</p>
-    <div class="video" id="heroVideo" data-video="https://www.youtube.com/watch?v=BTp2fqNYJXU" data-poster="">
+    <!-- The video for each language is set in the VIDEOS list in script block 5 below. -->
+    <div class="video" id="heroVideo" data-poster="">
      <div class="vph"><span class="play"></span><span>Your video goes here</span></div>
     </div>
     <ul class="mk-list"><li>Forex</li><li>Cryptocurrency</li><li>Futures</li><li>Indices</li><li>Metals</li><li>Shares</li><li>Traded Goods</li></ul>
@@ -553,22 +554,40 @@ footer p{margin-bottom:10px}
   });
 })();
 
-// 5) Hero video. Put your link in data-video on <div id="heroVideo"> (YouTube, Vimeo, or a direct .mp4/.webm URL).
-//    Optional: data-poster="image URL" for the cover image. Leave data-video empty to keep the placeholder.
+// 5) Hero video: one link per language (YouTube, Vimeo, or a direct .mp4/.webm URL).
+//    The language switcher (block 7) calls AlphaVideo.set(code), so the video changes together with the language.
+//    To replace a video, just edit the link for that language in VIDEOS below.
+//    Optional: data-poster="image URL" on <div id="heroVideo"> sets a cover image.
 (function(){
-  var v=document.getElementById('heroVideo'),u=(v.dataset.video||'').trim(),p=(v.dataset.poster||'').trim(),h;
-  if(p)v.style.background='center/cover url("'+encodeURI(p)+'")';
-  if(!u)return;
-  var y=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/),m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/);
-  if(y){
-    var id=y[1],o=(location.protocol.indexOf('http')===0)?'&origin='+encodeURIComponent(location.origin):'';
-    // Browsers only allow autoplay when the video is muted; viewers can unmute with the speaker icon.
-    v.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&enablejsapi=1'+o+'" title="Alpha AI video" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
-    return;
+  var VIDEOS={
+    en:'https://www.youtube.com/watch?v=a2LPybye8RU',  // English
+    fi:'https://www.youtube.com/watch?v=BTp2fqNYJXU',  // Finnish
+    de:'https://www.youtube.com/watch?v=TpOGRHrgIiY',  // German
+    nl:'https://www.youtube.com/watch?v=XqPlCCmIc0o',  // Dutch
+    fr:'https://www.youtube.com/watch?v=dPgvs6FEqqY'   // French
+  };
+  var TITLES={en:'Alpha AI video',fi:'Alpha AI -video',de:'Alpha AI Video',nl:'Alpha AI video',fr:'Alpha AI vidéo'};
+  var box=document.getElementById('heroVideo'),poster=(box.dataset.poster||'').trim(),current='';
+  if(poster)box.style.background='center/cover url("'+encodeURI(poster)+'")';
+
+  function build(u,title){
+    var y=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/),m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+    if(y){
+      var o=(location.protocol.indexOf('http')===0)?'&origin='+encodeURIComponent(location.origin):'';
+      // Browsers only allow autoplay when the video is muted; viewers can unmute with the speaker icon.
+      return '<iframe src="https://www.youtube.com/embed/'+y[1]+'?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&enablejsapi=1'+o+'" title="'+title+'" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+    }
+    if(m)return '<iframe src="https://player.vimeo.com/video/'+m[1]+'" title="'+title+'" allow="fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+    return '<video controls playsinline preload="metadata" src="'+encodeURI(u)+'"'+(poster?' poster="'+encodeURI(poster)+'"':'')+'></video>';
   }
-  if(m)h='<iframe src="https://player.vimeo.com/video/'+m[1]+'" title="Alpha AI video" allow="fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
-  else h='<video controls playsinline preload="metadata" src="'+encodeURI(u)+'"'+(p?' poster="'+encodeURI(p)+'"':'')+'></video>';
-  v.innerHTML=h;
+
+  function set(code){
+    var u=(VIDEOS[code]||VIDEOS.en||'').trim();
+    if(!u||u===current)return;          // no link, or this video is already showing
+    current=u;
+    box.innerHTML=build(u,TITLES[code]||TITLES.en);
+  }
+  window.AlphaVideo={set:set};
 })();
 
 // 6) Mobile sticky button: appears once the signup form has scrolled out of view.
@@ -578,7 +597,7 @@ footer p{margin-bottom:10px}
   new IntersectionObserver(function(e){b.classList.toggle('on',!e[0].isIntersecting&&e[0].boundingClientRect.top<0)}).observe(f);
 })();
 
-// 7) Language switcher. Content is English for every language for now.
+// 7) Language switcher. Page text is English for every language for now; the hero video already follows the language.
 //    Later: fill TRANSLATIONS and apply it inside setLang().
 (function(){
   var TRANSLATIONS={en:{},fi:{},de:{},nl:{},fr:{}}; // to be filled when the translations are ready
@@ -588,6 +607,7 @@ footer p{margin-bottom:10px}
     document.documentElement.lang=code;
     btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lang===code?'true':'false')});
     if(save){try{localStorage.setItem(KEY,code)}catch(e){}}
+    if(window.AlphaVideo)AlphaVideo.set(code);   // switch the hero video to this language
     // TODO: apply TRANSLATIONS[code] to the page here once the texts are provided
   }
   btns.forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang,true)})});
